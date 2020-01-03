@@ -1,0 +1,16 @@
+.logo{
+    font-size: 30px;
+    margin-left: 1%;
+}
+
+.menu{
+    font-size: 25px;
+    align-content: left;
+    text-align: left;
+       margin-left: 1%;float: left;
+}
+.settings{
+    align-content: right;
+    font-size: 25px;
+    margin-left: 83%;
+}
