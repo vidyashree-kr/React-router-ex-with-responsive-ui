@@ -1,8 +1,8 @@
-
-
 .wrapper {
     display: flex;
     width: 100%;
+    margin-top: 0.3%;
+    border: 1px solid rgb(204, 215, 224);
     align-items: stretch;
 }
 
@@ -13,15 +13,18 @@
 }
 
 #tabs{
-    font-size: 25px;
-    padding-left: 2%;
-    background-color: rgb(246, 247, 248);
-    height: 1.2%;
-border: 0.2px solid rgb(238, 242, 245);
+    font-size: 22px;
+    background-color: rgb(204, 215, 224);
+    height: 1%;
+border: 0.5px solid rgb(238, 242, 245);
+cursor: pointer;
 }
 
-#tabs.active {
-    border-right: 5px solid green
+#tabs:active {
+    border-right: 5px solid blue
+}
+#tabs:hover {
+    background-color: grey
 }
 
 #content{

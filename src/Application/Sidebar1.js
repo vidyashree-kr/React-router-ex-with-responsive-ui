@@ -4,36 +4,16 @@ import {
     Link
   } from "react-router-dom";
 import '../shared/GlobalStyle/SettingsStyle.css'
+import helper from '../shared/constants'
 
 export default class Sidebar1 extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-          tabsList1 : [
-            {
-              tab: "Users ",
-              to:"/message"
-            },
-            {
-              tab: "Messages",
-              to:"/Contacts"
-            },
-            {
-              tab: "Requests",
-              to:"/message"
-            },
-            {
-              tab: "Friends",
-              to:"/Contacts"
-            },          
-          ],
-        }
-    }
-render(){
+   render(){
     return(
-        <div align="left" id="sidebarleft">
-        {this.state.tabsList1.map((tabItem,index) =>{return(<div style={{width:'100%',marginTop:'3%'}} id="tabsleft">  
-        <Link to={tabItem.to}>{tabItem.tab}</Link></div>)})}
+        <div>
+        {helper.tabsList1.map((tabItem,index) =>{return(<div 
+        style={{padding:'2% 0% 2% 3%',textDecoration: 'none', color: 'white'}} 
+        id="tabs">  
+        <Link  style={{ textDecoration: 'none' }} to={tabItem.to==='/settings'?'/Contacts':'/message'}>{tabItem.tab}</Link></div>)})}
         </div>
     )
 }

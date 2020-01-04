@@ -2,79 +2,29 @@ import React from 'react'
 import '../shared/GlobalStyle/SettingsStyle.css'
 import YouTube from 'react-youtube';
 import avatar from '../assets/avatar.jpg'
-import Photo1 from '../assets/photo1.jpeg'
-import Photo2 from '../assets/photo2.jpeg'
-import Photo3 from '../assets/photo3.jpeg'
-import Photo4 from '../assets/photo4.jpeg'
-import Photo6 from '../assets/photo6.jpeg'
 import {
     BrowserRouter as Router,
     Link
 } from "react-router-dom";
-let contentList = [
-    { name: 'Vinay', type: 'photo', content: 'Feeling excited in nature camp', description: '', value: Photo1 },
-    { name: 'Ajay', type: 'video', content: '', description: 'Equality in relationship', value: "XM-HJT8_esM" },
-    { name: 'Arya', type: 'photo', content: 'Feeling happy in butterfly park', description: '', value: Photo2 },
-    { name: 'Pushkal', type: 'photo', content: '', description: 'Cute baby sleeping', value: Photo3 },
-    { name: 'Vijay', type: 'video', content: '', description: 'The previlage game', value: "AOMpxsiUg2Q" },
-    { name: 'Shree', type: 'photo', content: 'updated her cover Photo', description: '', value: Photo4 },
-    { name: 'Sujay', type: 'video', content: '', description: 'Youtube developers', value: "M7lc1UVf-VE" },
-    { name: 'Pranav', type: 'photo', content: 'updated his cover Photo', description: '', value: Photo6 },
-    { name: 'Vidya', type: 'photo', content: 'updated her profile Photo', description: '', value: Photo1 },
-];
-var videoId = contentList[0];
+import helper from '../shared/constants'
+
+let videoId = helper.contentList[0];
 let i = 0;
-let currentdate = new Date();
-let date = currentdate.getDay() + "/" + currentdate.getMonth()
-    + "/" + currentdate.getFullYear() + " @ "
-    + ((currentdate.getHours() < 10) ? "0" : "") + currentdate.getHours() + ":"
-    + ((currentdate.getMinutes() < 10) ? "0" : "") + currentdate.getMinutes() + ":" + ((currentdate.getSeconds() < 10) ? "0" : "") + currentdate.getSeconds();
 
 export default class AppContent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             windowWidth: undefined,
-            tabsList1: [
-                {
-                    tab: "User Profile",
-                    to: "/navigations"
-                },
-                {
-                    tab: "Messages",
-                    to: "/settings"
-                },
-                {
-                    tab: "Requests",
-                    to: "/navigations"
-                },
-                {
-                    tab: "Friends",
-                    to: "/settings"
-                },
-            ], tabsList2: [
-                {
-                    tab: "Contacts",
-                    to: "/navigations"
-                },
-                {
-                    tab: "My Profile",
-                    to: "/settings"
-                },
-                {
-                    tab: "Settings",
-                    to: "/navigations"
-                },
-            ]
-        }
+            }
     }
     _onReady(e) {
-        e.target.playVideo(contentList[i])
+        e.target.playVideo(helper.contentList[i])
     }
 
     _onEnd(event) {
-        videoId = contentList[i]
-        event.target.playVideo(contentList[++i]);
+        videoId = helper.contentList[i]
+        event.target.playVideo(helper.contentList[++i]);
     }
 
     render() {
@@ -91,19 +41,19 @@ export default class AppContent extends React.Component {
                 <div className="wrapper">
 
                     <div align="left" id="sidebar">
-                        {this.state.tabsList1.map((tabItem, index) => {
-                            return (<div id="tabs">
-                                <Link to={tabItem.to}>{tabItem.tab}</Link></div>)
+                        {helper.tabsList1.map((tabItem, index) => {
+                            return (<div style={{padding:'1% 5% 0% 4%',width:'90%' }} id="tabs">
+                                <Link  style={{ textDecoration: 'none' }} to={tabItem.to}>{tabItem.tab}</Link></div>)
                         })}
                     </div>
                     <div id="content">
-                        {contentList.map((contentId, index) => {
+                        {helper.contentList.map((contentId, index) => {
                             return (
                                 <div style={{ borderBottom: '9px solid grey' }}>
                                     <div style={{ margin: '1% 0 1% 0' }}>
                                         <div>
                                             <img style={{ borderRadius: '50%' }} src={contentId.type === 'photo' ? contentId.value : avatar}
-                                                width="50px" height="50px" />
+                                                width="40px" height="40px" />
                                             <span>
                                                 <span style={{ color: 'blue', fontSize: '24px', margin: '0px 10px 5px 0px' }}>
                                                     <b>{contentId.name}</b>
@@ -111,7 +61,7 @@ export default class AppContent extends React.Component {
                                                 <span>{contentId.content}</span></span>
                                         </div>
                                         <div style={{ fontSize: '20px' }}>{contentId.description}</div>
-                                        <span>{date}</span>
+                                        <span>{contentId.time}</span>
                                     </div>
                                     {contentId.type === 'video' ?
                                         <div align="center">
@@ -127,17 +77,18 @@ export default class AppContent extends React.Component {
                         })}
                     </div>
                     <div align="right" id="sidebar">
-                        {this.state.tabsList2.map((tabItem, index) => {
-                            return (<div id="tabs">
-                                <Link to={tabItem.to}>{tabItem.tab}</Link>
+                        {helper.tabsList2.map((tabItem, index) => {
+                            return (<div style={{padding:'1% 5% 0% 3%',width:'90%'}}  id="tabs">
+                             {tabItem.tab==='Logout'?<a  style={{ textDecoration: 'none' }} href="https://www.google.com">Logout</a>:
+                             <Link style={{ textDecoration: 'none' }} to={tabItem.to}><div>{tabItem.tab}</div></Link>}
                             </div>)
                         })}
-                        <div style={{ backgroundColor: 'rgb(246, 247, 248)', color: 'blue' }}>Last password changed on <div>01/01/2019</div></div>
+                       
                     </div>
                 </div>)}
 
                 {windowWidth <= 600 && (<div>
-                    {contentList.map((contentId, index) => {
+                    {helper.contentList.map((contentId, index) => {
                         return (
                             <div style={{ borderBottom: '9px solid grey' }}>
                                 <div style={{ margin: '1% 0 1% 0' }}>
@@ -152,6 +103,7 @@ export default class AppContent extends React.Component {
                                             </span> {contentId.content}</div>
                                     </div>
                                     <div style={{ fontSize: '20px' }}>{contentId.description}</div>
+                                    <div>{contentId.time}</div>
                                 </div>
                                 {contentId.type === 'video' ?
                                     <div align="center">

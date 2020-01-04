@@ -30,33 +30,37 @@ export default class Header extends React.Component {
     return (
       <div>
         {windowWidth > 600 && (<nav>
-          <header style={{ backgroundColor: "rgb(153, 248, 217)" }}>
+          <header style={{ backgroundColor: "blue" }}>
             <div className="logo">
               <div align="center" className="menu">
-                <div><Link to="/"><img src={Logo} style={{ borderRadius: '50%' }} alt="Settings" width='120px' height="80px" /></Link></div>
+                <div style={{marginTop:'2%'}}><Link to="/"><img src={Logo} alt="logo" width='90px' height="70px" /></Link>
+                <span style={{marginLeft:'450px'}}><Link style={{textDecoration:'none',fontSize:'30px', color:'white'}}to="/" ><b>Facebook</b></Link></span></div>
 
               </div>
               <div align="center" className="settings">
-                <div><img src={Photo} style={{ borderRadius: '50%' }} alt="photo" width='70px' height="70px" /></div>
-                <div style={{ fontSize: '16px' }}><b>Welcome {this.state.user}</b></div></div>
+                <div style={{paddingTop:'1%'}}><img src={Photo} style={{ borderRadius: '50%' }} alt="photo" width='70px' height="70px" /></div>
+                <div style={{ fontSize: '16px',color:'white' }}>Welcome {this.state.user}</div></div>
             </div>
-
           </header>
         </nav>)}
         {windowWidth <= 600 && (
           <div><nav>
-            <header style={{ backgroundColor: "rgb(153, 248, 217)" }}>
+            <header style={{ backgroundColor: "blue" }}>
               <div align="center" className="menu">
-                <div> <Link to="/" ><img src={Logo} style={{ borderRadius: '50%' }} alt="Settings" width='80px' height="50px" /></Link></div>
+                <div style={{marginTop:'2%'}}> <Link style={{textDecoration:'none'}}to="/" >
+                <img src={Logo} alt="Settings" width='80px' height="50px"/>
+                </Link><span style={{marginLeft:'40px'}}>
+                <Link style={{textDecoration:'none', color:'white'}}to="/" ><b>Facebook</b></Link></span></div>
 
               </div>
               <div align="center" className="settings">
-                <div><img src={Photo} style={{ borderRadius: '50%' }} alt="photo" width='50px' height="50px" /></div>
+                <div style={{marginTop:'2%'}}><img src={Photo} style={{ borderRadius: '50%' }} alt="photo" width='50px' height="50px" /></div>
                 <div style={{ fontSize: '16px' }}>Welcome </div></div>
               <span style={{ marginRight: '62%', fontSize: '20px' }}><Link to="/sidebar1">
                 <img src={MenuIcon2} alt="Profile" width="60px" height="60px" /></Link>
               </span>
-              <span style={{ fontSize: '20px' }}><Link to="/sidebar2"> <img src={MenuIcon2} alt="Settings" width="60px" height="60px" /></Link></span>
+              <span style={{ fontSize: '20px' }}><Link to="/sidebar2">
+               <img src={MenuIcon2} alt="Settings" width="60px" height="60px" /></Link></span>
             </header>
           </nav></div>
         )}       </div>
