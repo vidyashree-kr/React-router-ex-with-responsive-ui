@@ -53,11 +53,11 @@ export default class Header extends React.Component {
                 <Link style={{textDecoration:'none', color:'white'}}to="/" ><b>Facebook</b></Link></span></div>
 
               </div>
-              <div align="center" className="settings">
+              <div align="center"  className="settings">
                 <div style={{marginTop:'2%'}}><img src={Photo} style={{ borderRadius: '50%' }} alt="photo" width='50px' height="50px" /></div>
-                <div style={{ fontSize: '16px' }}>Welcome </div></div>
+                <div style={{ fontSize: '16px',color: "white" }}>Welcome </div></div>
               <span style={{ marginRight: '62%', fontSize: '20px' }}><Link to="/sidebar1">
-                <img src={MenuIcon2} alt="Profile" width="60px" height="60px" /></Link>
+                <img src={MenuIcon2} alt="Profile" style={{marginRight:'3%'}} width="60px" height="60px" /></Link>
               </span>
               <span style={{ fontSize: '20px' }}><Link to="/sidebar2">
                <img src={MenuIcon2} alt="Settings" width="60px" height="60px" /></Link></span>

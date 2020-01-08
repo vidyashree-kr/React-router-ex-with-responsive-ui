@@ -1,39 +1,42 @@
 .wrapper {
-    display: flex;
-    width: 100%;
-    margin-top: 0.3%;
-    border: 1px solid rgb(204, 215, 224);
-    align-items: stretch;
+  display: flex;
+  width: 100%;
+  margin-top: 0.3%;
+  border: 1px solid rgb(204, 215, 224);
+  align-items: stretch;
 }
 
 #sidebar {
-    min-width: 30%;
-    max-width: 30%;
-    min-height: 80vh;
+  min-width: 30%;
+  max-width: 30%;
+  min-height: 80vh;
 }
 
-#tabs{
-    font-size: 22px;
-    background-color: rgb(204, 215, 224);
-    height: 1%;
-border: 0.5px solid rgb(238, 242, 245);
-cursor: pointer;
+#tabs {
+  font-size: 22px;
+  background-color: rgb(204, 215, 224);
+  height: 9%;
+  border: 0.5px solid rgb(238, 242, 245);
+  cursor: pointer;
 }
 
 #tabs:active {
-    border-right: 5px solid blue
+  border-right: 5px solid blue;
 }
 #tabs:hover {
-    background-color: grey
+  background-color: grey;
 }
 
-#content{
+#content {
+  margin: 0% 0% 0% 0%;
+  min-width: 40%;
+  max-width: 40%;
+  min-height: 80vh;
+}
+
+#mobileContent {
     margin: 0% 0% 0% 0%;
-    min-width: 40%;
-    max-width: 40%;
-        min-height: 80vh; 
-        overflow:'auto';
-}
-
-
-
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 80vh;
+  }
